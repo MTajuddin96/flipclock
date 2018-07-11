@@ -64,8 +64,8 @@ body {
     width: 100%;
     height: 100%; }
     .wrapper .flipBefore .container .flipTop {
-      -webkit-animation: turn2 .5s linear backwards;
-      animation: turn2 .5s linear backwards;
+      -webkit-animation: turn2 1s linear backwards infinite;
+      animation: turn2 1s linear backwards infinite;
       -webkit-transition: 1s;
       -o-transition: 1s;
       transition: 1s; }
@@ -125,8 +125,8 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    -webkit-animation: asd .5s .5s linear backwards;
-    animation: asd .5s .5s linear backwards; }
+    -webkit-animation: asd .5s   linear backwards infinite;
+    animation: asd .5s   linear backwards infinite; }
     .wrapper .flipActive .container .flipTop::after {
       content: "";
       position: absolute;
@@ -157,8 +157,8 @@ body {
       height: 50%;
       overflow: hidden;
       z-index: 2;
-      -webkit-animation: turn .5s .5s linear backwards;
-      animation: turn .5s .5s linear backwards; }
+      -webkit-animation: turn 1s .5s   linear backwards infinite;
+      animation: turn 1s .5s   linear backwards infinite; }
       .wrapper .flipActive .container .flipBottom .shadow {
         position: absolute;
         left: 0;
@@ -203,12 +203,18 @@ body {
   0% {
     -webkit-transform: rotateX(90deg);
     transform: rotateX(90deg); }
+  50% {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg); }
   100% {
     -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg); } }
 
 @keyframes turn {
   0% {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg); }
+  50% {
     -webkit-transform: rotateX(90deg);
     transform: rotateX(90deg); }
   100% {
@@ -219,12 +225,18 @@ body {
   0% {
     -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg); }
+  50% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg); }
   100% {
     -webkit-transform: rotateX(-90deg);
     transform: rotateX(-90deg); } }
 
 @keyframes turn2 {
   0% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg); }
+  50% {
     -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg); }
   100% {
