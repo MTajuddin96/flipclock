@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #ccc;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font: normal 11px "Helvetica Neue", Helvetica, sans-serif; }
+
+.wrapper .flipBefore .container, .wrapper .flipActive .container {
+  height: 100%;
+  -webkit-perspective: 200px;
+  perspective: 200px;
+  margin: 0 !important;
+  overflow: visible !important; }
+
+.wrapper .flipBefore .container .flipTop, .wrapper .flipActive .container .flipTop {
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden; }
+
+.wrapper .flipBefore .container .flipTop .number, .wrapper .flipActive .container .flipTop .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 200%;
+  color: #ccc;
+  text-shadow: 0 1px 2px #000;
+  text-align: center;
+  background-color: #333;
+  border-radius: 6px;
+  font-size: 70px;
+  overflow: hidden; }
+
+body {
+  background: url("../images/background.png");
+  position: relative; }
+
+.wrapper {
+  position: relative;
+  float: left;
+  margin: 5px;
+  width: 60px;
+  height: 80px;
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 87px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); }
+  .wrapper .flipBefore {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+    .wrapper .flipBefore .container .flipTop {
+      -webkit-animation: turn2 .5s linear backwards;
+      animation: turn2 .5s linear backwards;
+      -webkit-transition: 1s;
+      -o-transition: 1s;
+      transition: 1s; }
+      .wrapper .flipBefore .container .flipTop::after {
+        content: "";
+        position: absolute;
+        top: 44px;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 3px;
+        background-color: rgba(0, 0, 0, 0.4); }
+      .wrapper .flipBefore .container .flipTop .shadow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        left: 0;
+        overflow: hidden;
+        -webkit-animation: show .5s linear both;
+        animation: show .5s linear both; }
+    .wrapper .flipBefore .container .flipBottom {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50%;
+      overflow: hidden; }
+      .wrapper .flipBefore .container .flipBottom .shadow {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow: hidden;
+        -webkit-animation: hide .5s linear both;
+        animation: hide .5s linear both; }
+      .wrapper .flipBefore .container .flipBottom .number {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 200%;
+        color: #ccc;
+        text-shadow: 0 1px 2px #000;
+        text-align: center;
+        background-color: #333;
+        border-radius: 6px;
+        font-size: 70px;
+        overflow: hidden; }
+  .wrapper .flipActive {
+    z-index: -1;
+    position: absolute;
+    left: 0%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: asd .5s .5s linear backwards;
+    animation: asd .5s .5s linear backwards; }
+    .wrapper .flipActive .container .flipTop::after {
+      content: "";
+      position: absolute;
+      top: 44px;
+      left: 0;
+      z-index: 5;
+      width: 100%;
+      height: 3px;
+      background-color: rgba(0, 0, 0, 0.4); }
+    .wrapper .flipActive .container .flipTop .shadow {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      overflow: hidden;
+      -webkit-animation: hide .5s .3s linear;
+      animation: hide .5s .3s linear; }
+    .wrapper .flipActive .container .flipBottom {
+      -webkit-transform-origin: 50% 0%;
+      -ms-transform-origin: 50% 0%;
+      transform-origin: 50% 0%;
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+      z-index: 2;
+      -webkit-animation: turn .5s .5s linear backwards;
+      animation: turn .5s .5s linear backwards; }
+      .wrapper .flipActive .container .flipBottom .shadow {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow: hidden;
+        -webkit-animation: hide .5s .3s linear both;
+        animation: hide .5s .3s linear both; }
+      .wrapper .flipActive .container .flipBottom .number {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        height: 200%;
+        color: #ccc;
+        text-shadow: 0 1px 2px #000;
+        text-align: center;
+        background-color: #333;
+        border-radius: 6px;
+        font-size: 70px;
+        overflow: hidden; }
+
+@-webkit-keyframes asd {
+  0% {
+    z-index: -1; }
+  5% {
+    z-index: 4; }
+  100% {
+    z-index: 4; } }
+
+@keyframes asd {
+  0% {
+    z-index: -1; }
+  5% {
+    z-index: 4; }
+  100% {
+    z-index: 4; } }
+
+@-webkit-keyframes turn {
+  0% {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg); }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg); } }
+
+@keyframes turn {
+  0% {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg); }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg); } }
+
+@-webkit-keyframes turn2 {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg); }
+  100% {
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg); } }
+
+@keyframes turn2 {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg); }
+  100% {
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg); } }
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes show {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }

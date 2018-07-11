@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #ccc;
+    box-sizing: border-box;
+    font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
+}
+%container{
+    height: 100%;
+    perspective: 200px;
+    margin: 0 !important;
+    overflow: visible !important; 
+}
+%flipTop{
+    transform-origin: 50% 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+%number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 200%;
+    color: #ccc;
+    text-shadow: 0 1px 2px #000;
+    text-align: center;
+    background-color: #333;
+    border-radius: 6px;
+    font-size: 70px;
+    overflow: hidden;
+}
+body{
+    background: url("../images/background.png");
+    position: relative;
+}
+.wrapper{
+    position: relative;
+    float: left;
+    margin: 5px;
+    width: 60px;
+    height:80px;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 87px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .7);
+    .flipBefore{
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        .container{
+            @extend %container;
+            .flipTop{
+                @extend %flipTop;
+                animation: turn2 .5s linear backwards;
+                transition: 1s;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 44px;
+                    left: 0;
+                    z-index: 5;
+                    width: 100%;
+                    height: 3px;
+                    background-color: rgba(0,0,0,.4);
+                }
+                .shadow{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    left: 0;
+                    overflow: hidden;
+                    animation: show .5s linear both;
+                }
+                .number{
+                    @extend %number
+                }
+            }
+            .flipBottom{
+                z-index: 1;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 50%;
+                overflow: hidden;
+                .shadow{
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    overflow: hidden;
+                    animation: hide .5s linear both;
+                }
+                .number{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 100%;
+                    height: 200%;
+                    color: #ccc;
+                    text-shadow: 0 1px 2px #000;
+                    text-align: center;
+                    background-color: #333;
+                    border-radius: 6px;
+                    font-size: 70px;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    .flipActive{
+        z-index:-1;
+        position: absolute;
+        left: 0%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        animation: asd .5s .5s linear backwards ;
+        .container{
+            @extend %container;
+            .flipTop{
+                @extend %flipTop;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 44px;
+                    left: 0;
+                    z-index: 5;
+                    width: 100%;
+                    height: 3px;
+                    background-color: rgba(0,0,0,.4);
+                }
+                .shadow{
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    overflow: hidden;
+                    animation: hide .5s .3s linear ;
+                }
+                .number{
+                    @extend %number;
+                }
+            }
+            .flipBottom{
+                transform-origin: 50% 0%;
+                z-index: 1;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                overflow: hidden;
+                z-index: 2;
+                animation: turn .5s .5s linear backwards ;
+                .shadow{
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    overflow: hidden;
+                    animation: hide .5s .3s linear both;
+                }
+                .number{
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    z-index: 1;
+                    width: 100%;
+                    height: 200%;
+                    color: #ccc;
+                    text-shadow: 0 1px 2px #000;
+                    text-align: center;
+                    background-color: #333;
+                    border-radius: 6px;
+                    font-size: 70px;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+
+}
+@keyframes asd {
+    0% {
+        z-index: -1;
+    }
+    5% {
+        z-index: 4;
+    }
+    100% {
+        z-index: 4;
+    }
+}
+@keyframes turn {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+@keyframes turn2 {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+@keyframes show{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes hide{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
